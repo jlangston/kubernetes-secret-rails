@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'kubernetes/secret/rails/version'
+require 'kubernetes/secret/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "kubernetes-secret-rails"
-  spec.version       = Kubernetes::Secret::Rails::VERSION
+  spec.version       = Kubernetes::Secret::VERSION
   spec.authors       = ["Zack Siri"]
   spec.email         = ["zack@codemy.net"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Simple Wrapper for accessing secrets on kubernetes}
+  spec.description   = %q{Simple wrapper for accessing secrets}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
