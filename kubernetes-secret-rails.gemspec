@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'kubernetes/secret/version'
+require 'kubernetes/secret/rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "kubernetes-secret-rails"
-  spec.version       = Kubernetes::Secret::VERSION
+  spec.version       = Kubernetes::Secret::Rails::VERSION
   spec.authors       = ["Zack Siri"]
   spec.email         = ["zack@codemy.net"]
 
