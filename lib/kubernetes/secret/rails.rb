@@ -1,9 +1,6 @@
-require "kubernetes/secret/rails/version"
-
-module Kubernetes
-  module Secret
-    module Rails
-      # Your code goes here...
-    end
-  end
+begin
+  require "rails"
+rescue LoadError
+else
+  require "kubernetes/secret/rails/railtie"
 end
