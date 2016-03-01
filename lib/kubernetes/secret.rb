@@ -12,11 +12,8 @@ module Kubernetes
 
     def load_secrets
       secrets_list.inject({}) do |hash, file_name|
-        hash.merge(file_name => File.read(File.join(path, file)))
-        hash
+        hash.merge(:"#{file_name.underscore}" => File.read(File.join(path, file_name)).strip)
       end
     end
   end
 end
-
-require 'kubernetes/secret/rails'
