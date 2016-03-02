@@ -6,7 +6,7 @@ module Kubernetes
       class Railtie < ::Rails::Railtie        
         config.before_configuration do 
           if Secret.on_kubernetes?
-            ::Rails.application.secrets.merge!({kubernetes: Secret.load_secrets})
+            ::Rails.application.secrets.merge!(Secret.load_secrets)
           end
         end
       end
