@@ -1,15 +1,21 @@
-# Kubernetes::Secret::Rails
+# Kubernetes Secret
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kubernetes/secret/rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem helps you work with secrets in kubernetes. If you are deploying your app using docker + kubernetes this gem can come in handy.
 
-TODO: Delete this and the text above, and describe your gem
+The gem is a simple wrapper and will inject kubernetes secrets into the `Rails.application.secrets`
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'kubernetes-secret-rails'
+group :production do 
+  gem 'kubernetes-secret-rails'
+end
+
+# or
+
+gem 'kubernetes-secret-rails', group: :production
 ```
 
 And then execute:
@@ -22,7 +28,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply use `Rails.application.secrets.kubernetes` to access all the secrets you have on kubenetes.
+
+This will work with Google Container Engine out of the box.
 
 ## Development
 
