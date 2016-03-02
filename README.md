@@ -30,7 +30,7 @@ Or install it yourself as:
 
 Simply use `Rails.application.secrets.kubernetes` to access all the secrets you have on kubenetes.
 
-This will work with Google Container Engine as well.
+This will work with Google Container Engine out of the box.
 
 ## Development
 
