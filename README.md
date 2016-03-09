@@ -28,16 +28,17 @@ Or install it yourself as:
 
 ## Usage
 
-Simply use `Rails.application.secrets.kubernetes` to access all the secrets you have on kubernetes.
+Simply use `Rails.application.secrets` to access all the secrets you have on kubernetes.
+
+For example if your secret is called `rails-env` on kubernetes it will map to
+
+`Rails.application.secrets.rails_env`
 
 Specify the name of the secret in your `config/secrets.yml file`
 
 ```ruby
-staging:
-  kubernetes_secret_name: 'blah-staging'
-
 production:
-  kubernetes_secret_name: 'blah-production'
+  kubernetes_secret_name: 'blah'
 ```
 
 This will work with Google Container Engine out of the box.
