@@ -8,7 +8,7 @@ module Kubernetes
 
     def secrets_list
       begin
-        Dir.entries(path) - ['.', '..', '..data']
+        Dir.entries(path) - ['.', '..', '.*', '..*']
       rescue => e
         puts "-----> No secret mounted or not on kubernetes. No secrets injected."
       end
