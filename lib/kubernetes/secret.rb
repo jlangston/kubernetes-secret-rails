@@ -3,7 +3,7 @@ module Kubernetes
     extend self
 
     def path
-      unless Rails.application.secrets.kubernetes_secret_name? throw "No kubernetes secrets path defined."
+      if Rails.application.secrets.kubernetes_secret_name.blank? throw "No kubernetes secrets path defined."
       "/etc/#{::Rails.application.secrets.kubernetes_secret_name}"
     end
 
