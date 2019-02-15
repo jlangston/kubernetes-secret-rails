@@ -8,7 +8,7 @@ module Kubernetes
       if Rails.application.secrets.kubernetes_secret_name.blank?
         throw 'No kubernetes secrets path defined.'
       end
-      "/etc/#{::Rails.application.secrets.kubernetes_secret_name}"
+      "/etc/#{Rails.application.secrets.kubernetes_secret_name}"
     end
 
     def secrets_list
