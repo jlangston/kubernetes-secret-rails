@@ -1,20 +1,22 @@
+# frozen_string_literal: true
+
 module Kubernetes
   module Secret
-    extend self
+    module_function
 
     def path
       if Rails.application.secrets.kubernetes_secret_name.blank?
-        throw "No kubernetes secrets path defined."
+        throw 'No kubernetes secrets path defined.'
       end
       "/etc/#{::Rails.application.secrets.kubernetes_secret_name}"
     end
 
     def secrets_list
-      begin
-        Dir.entries(path).select { |f| File.file?("#{path}/#{f}") }
-      rescue => e
-        puts "-----> No secret mounted or not on kubernetes. No secrets injected."
-      end
+      puts "K8s path for secrets #{path}"
+      Dir.entries(path).select { |f| File.file?("#{path}/#{f}") }
+    rescue StandardError => e
+      puts e
+      puts '-----> No secret mounted or not on kubernetes. No secrets injected.'
     end
 
     def on_kubernetes?
